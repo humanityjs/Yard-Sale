@@ -6,6 +6,8 @@
   "scripts": {
     "build": "webpack --watch",
     "start": "node server/server.js",
+    "db:migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
+    "db:seed": "sequelize db:seed:undo:all && sequelize db:seed:all",
     "start-dev": "NODE_ENV=development node server/server.js",
     "start-client": "webpack-dev-server --watch"
   },
