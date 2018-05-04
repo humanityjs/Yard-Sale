@@ -2,8 +2,8 @@
 module.exports = function(sequelize, DataTypes) {
   var YardSale = sequelize.define('YardSale', {
     title: DataTypes.STRING,
-    startdate: DataTypes.DATETIME,
-    saleDate: DataTypes.DATETIME,
+    startdate: DataTypes.DATE,
+    saleDate: DataTypes.DATE,
     note: DataTypes.STRING,
     location: DataTypes.STRING,
     rating: DataTypes.STRING

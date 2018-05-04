@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Cart = sequelize.define('Cart', {
     userId: DataTypes.INTEGER,
     yardSaleId: DataTypes.INTEGER,
-    expirationDate: DataTypes.DATETIME,
+    expirationDate: DataTypes.DATE,
     status: DataTypes.STRING
   }, {
     classMethods: {
@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       foreignKey: 'cartId',
       as: 'cartItems',
     });
-    Cart.belongsTo(models.users, {
+    Cart.belongsTo(models.User, {
       foriegnKey: 'userId',
       onDelete: 'CASCADE',
     });

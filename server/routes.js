@@ -1,5 +1,5 @@
-import Controllers from '../controllers';
-import { validateUser, adminOnly } from '../utilities';
+import Controllers from './controllers';
+import { validateUser, adminOnly } from './utilities';
 
 
 const yardsalesController = Controllers.YardSale;
