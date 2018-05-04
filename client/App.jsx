@@ -1,14 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-
-import configureStore from './store';
-
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import router from './router';
+import 'bootstrap';
 import './scss/main.scss';
-
-import Login from './components/Login.jsx';
-import ModalRoot from './components/ModalRoot.jsx';
-import FlashMessageRoot from './components/FlashMessageRoot.jsx';
 
 /**
 * App.jsx: main entry file
@@ -16,17 +11,30 @@ import FlashMessageRoot from './components/FlashMessageRoot.jsx';
 */
 const App = () => {
   return (
-    <div>
-      <FlashMessageRoot />
-      <Login />
-      <ModalRoot />
+    <div className="home">
+      <Router>
+        <div>
+          <Switch>
+            {
+              router.map((route) => (
+                <Route
+                  path={route.path}
+                  name={route.name}
+                  exact={route.exact}
+                  component={route.component}
+                  key={route.path}
+                >
+                </Route>
+              ))
+            }
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
 
 ReactDOM.render(
-  <Provider store={configureStore()}>
-    <App />
-  </Provider>,
+  <App />,
   document.getElementById('app')
 );

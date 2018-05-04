@@ -18,6 +18,13 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+    modules: ['node_modules'],
+    alias: {
+      '@': path.resolve('client')
+    }
+  },
   devServer: {
     contentBase: 'build/', // Relative directory for base of server
     publicPath: '/',
